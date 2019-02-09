@@ -10,6 +10,17 @@
 		2B4AE472220E9044000E7178 /* RxPagingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE468220E9044000E7178 /* RxPagingKit.framework */; };
 		2B4AE477220E9044000E7178 /* RxPagingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE476220E9044000E7178 /* RxPagingKitTests.swift */; };
 		2B4AE479220E9044000E7178 /* RxPagingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B4AE46B220E9044000E7178 /* RxPagingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B4AE48A220E905A000E7178 /* PagingMenuViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE482220E9059000E7178 /* PagingMenuViewController+Rx.swift */; };
+		2B4AE48B220E905A000E7178 /* PagingMenuViewControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE483220E9059000E7178 /* PagingMenuViewControllerDelegateProxy.swift */; };
+		2B4AE48C220E905A000E7178 /* RxPagingMenuViewControllerDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE484220E9059000E7178 /* RxPagingMenuViewControllerDataSourceType.swift */; };
+		2B4AE48D220E905A000E7178 /* PagingContentViewControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE485220E9059000E7178 /* PagingContentViewControllerDelegateProxy.swift */; };
+		2B4AE48E220E905A000E7178 /* PagingContentViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE486220E9059000E7178 /* PagingContentViewController+Rx.swift */; };
+		2B4AE48F220E905A000E7178 /* RxPagingContentViewControllerDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE487220E9059000E7178 /* RxPagingContentViewControllerDataSourceType.swift */; };
+		2B4AE490220E905A000E7178 /* PagingMenuViewControllerDataSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE488220E905A000E7178 /* PagingMenuViewControllerDataSourceProxy.swift */; };
+		2B4AE491220E905A000E7178 /* PagingContentViewControllerDataSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4AE489220E905A000E7178 /* PagingContentViewControllerDataSourceProxy.swift */; };
+		2B4AE49D220E9710000E7178 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE49A220E9710000E7178 /* RxCocoa.framework */; };
+		2B4AE49E220E9710000E7178 /* PagingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE49B220E9710000E7178 /* PagingKit.framework */; };
+		2B4AE49F220E9710000E7178 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE49C220E9710000E7178 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +40,17 @@
 		2B4AE471220E9044000E7178 /* RxPagingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxPagingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4AE476220E9044000E7178 /* RxPagingKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPagingKitTests.swift; sourceTree = "<group>"; };
 		2B4AE478220E9044000E7178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B4AE482220E9059000E7178 /* PagingMenuViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PagingMenuViewController+Rx.swift"; sourceTree = "<group>"; };
+		2B4AE483220E9059000E7178 /* PagingMenuViewControllerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuViewControllerDelegateProxy.swift; sourceTree = "<group>"; };
+		2B4AE484220E9059000E7178 /* RxPagingMenuViewControllerDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxPagingMenuViewControllerDataSourceType.swift; sourceTree = "<group>"; };
+		2B4AE485220E9059000E7178 /* PagingContentViewControllerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingContentViewControllerDelegateProxy.swift; sourceTree = "<group>"; };
+		2B4AE486220E9059000E7178 /* PagingContentViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PagingContentViewController+Rx.swift"; sourceTree = "<group>"; };
+		2B4AE487220E9059000E7178 /* RxPagingContentViewControllerDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxPagingContentViewControllerDataSourceType.swift; sourceTree = "<group>"; };
+		2B4AE488220E905A000E7178 /* PagingMenuViewControllerDataSourceProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingMenuViewControllerDataSourceProxy.swift; sourceTree = "<group>"; };
+		2B4AE489220E905A000E7178 /* PagingContentViewControllerDataSourceProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingContentViewControllerDataSourceProxy.swift; sourceTree = "<group>"; };
+		2B4AE49A220E9710000E7178 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		2B4AE49B220E9710000E7178 /* PagingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagingKit.framework; path = Carthage/Build/iOS/PagingKit.framework; sourceTree = "<group>"; };
+		2B4AE49C220E9710000E7178 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4AE49D220E9710000E7178 /* RxCocoa.framework in Frameworks */,
+				2B4AE49E220E9710000E7178 /* PagingKit.framework in Frameworks */,
+				2B4AE49F220E9710000E7178 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +81,7 @@
 				2B4AE46A220E9044000E7178 /* RxPagingKit */,
 				2B4AE475220E9044000E7178 /* RxPagingKitTests */,
 				2B4AE469220E9044000E7178 /* Products */,
+				2B4AE492220E9577000E7178 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +98,14 @@
 			isa = PBXGroup;
 			children = (
 				2B4AE46B220E9044000E7178 /* RxPagingKit.h */,
+				2B4AE482220E9059000E7178 /* PagingMenuViewController+Rx.swift */,
+				2B4AE486220E9059000E7178 /* PagingContentViewController+Rx.swift */,
+				2B4AE489220E905A000E7178 /* PagingContentViewControllerDataSourceProxy.swift */,
+				2B4AE487220E9059000E7178 /* RxPagingContentViewControllerDataSourceType.swift */,
+				2B4AE488220E905A000E7178 /* PagingMenuViewControllerDataSourceProxy.swift */,
+				2B4AE484220E9059000E7178 /* RxPagingMenuViewControllerDataSourceType.swift */,
+				2B4AE483220E9059000E7178 /* PagingMenuViewControllerDelegateProxy.swift */,
+				2B4AE485220E9059000E7178 /* PagingContentViewControllerDelegateProxy.swift */,
 				2B4AE46C220E9044000E7178 /* Info.plist */,
 			);
 			path = RxPagingKit;
@@ -84,6 +118,16 @@
 				2B4AE478220E9044000E7178 /* Info.plist */,
 			);
 			path = RxPagingKitTests;
+			sourceTree = "<group>";
+		};
+		2B4AE492220E9577000E7178 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B4AE49B220E9710000E7178 /* PagingKit.framework */,
+				2B4AE49A220E9710000E7178 /* RxCocoa.framework */,
+				2B4AE49C220E9710000E7178 /* RxSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +152,7 @@
 				2B4AE464220E9044000E7178 /* Sources */,
 				2B4AE465220E9044000E7178 /* Frameworks */,
 				2B4AE466220E9044000E7178 /* Resources */,
+				2B4AE499220E958D000E7178 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -189,11 +234,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B4AE499220E958D000E7178 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PagingKit.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PagingKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B4AE464220E9044000E7178 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4AE491220E905A000E7178 /* PagingContentViewControllerDataSourceProxy.swift in Sources */,
+				2B4AE490220E905A000E7178 /* PagingMenuViewControllerDataSourceProxy.swift in Sources */,
+				2B4AE48C220E905A000E7178 /* RxPagingMenuViewControllerDataSourceType.swift in Sources */,
+				2B4AE48A220E905A000E7178 /* PagingMenuViewController+Rx.swift in Sources */,
+				2B4AE48D220E905A000E7178 /* PagingContentViewControllerDelegateProxy.swift in Sources */,
+				2B4AE48E220E905A000E7178 /* PagingContentViewController+Rx.swift in Sources */,
+				2B4AE48B220E905A000E7178 /* PagingMenuViewControllerDelegateProxy.swift in Sources */,
+				2B4AE48F220E905A000E7178 /* RxPagingContentViewControllerDataSourceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +428,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RxPagingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -373,6 +457,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RxPagingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,6 +479,7 @@
 		2B4AE480220E9044000E7178 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R33Y42SDDR;
 				INFOPLIST_FILE = RxPagingKitTests/Info.plist;
@@ -409,6 +498,7 @@
 		2B4AE481220E9044000E7178 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R33Y42SDDR;
 				INFOPLIST_FILE = RxPagingKitTests/Info.plist;
