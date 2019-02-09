@@ -4,6 +4,9 @@
 ![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+[![License](https://img.shields.io/cocoapods/l/PagingKit.svg?style=flat)](http://cocoapods.org/pods/RxPagingKit)
+[![Version](https://img.shields.io/cocoapods/v/PagingKit.svg?style=flat)](http://cocoapods.org/pods/RxPagingKit)
+
 Reactive Extension for [PagingKit](https://github.com/kazuhiro4949/PagingKit)
 
 # What's this?
@@ -14,6 +17,41 @@ Reactive Extension for [PagingKit](https://github.com/kazuhiro4949/PagingKit)
 + Swift 4.2
 
 # Installation
+
+### CocoaPods
++ Install CocoaPods
+```
+> gem install cocoapods
+> pod setup
+```
++ Create Podfile
+```
+> pod init
+```
++ Edit Podfile
+```ruby
+target 'YourProject' do
+  use_frameworks!
+
+  pod "RxPagingKit" # add
+
+  target 'YourProject' do
+    inherit! :search_paths
+  end
+
+  target 'YourProject' do
+    inherit! :search_paths
+  end
+
+end
+```
+
++ Install
+
+```
+> pod install
+```
+open .xcworkspace
 
 ## Carthage
 + Install Carthage from Homebrew
