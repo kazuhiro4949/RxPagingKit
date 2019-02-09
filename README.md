@@ -56,3 +56,43 @@ import RxCocoa
 import PagingKit
 ```
 
+# Example
+You can implement the binding with Reactive Programming instead of Delegate pattern.
+
+```swift
+    let items = PublishSubject<[(menu: String, width: CGFloat, content: UIViewController)]>()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        menuViewController?.register(type: TitleLabelMenuViewCell.self, forCellWithReuseIdentifier: "identifier")
+        menuViewController?.registerFocusView(view: UnderlineFocusView())
+        
+        // PagingMenuViewControllerDataSource
+        items.asObserver()
+            .map { items in items.map({ ($0.menu, $0.width) }) }
+            .bind(to: menuViewController.rx.items(
+                cellIdentifier: "identifier",
+                cellType: TitleLabelMenuViewCell.self)
+            ) { _, model, cell in
+                cell.titleLabel.text = model
+            }
+            .disposed(by: disposeBug)
+        
+        // PagingContentViewControllerDataSource
+        items.asObserver()
+            .map { items in items.map({ $0.content }) }
+            .bind(to: contentViewController.rx.viewControllers())
+            .disposed(by: disposeBug)
+        
+        // PagingMenuViewControllerDelegate
+        menuViewController.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] (page, prev) in
+            self?.contentViewController.scroll(to: page, animated: true)
+        }).disposed(by: disposeBug)
+        
+        // PagingContentViewControllerDelegate
+        contentViewController.rx.didManualScroll.asObservable().subscribe(onNext: { [weak self] (index, percent) in
+            self?.menuViewController.scroll(index: index, percent: percent, animated: false)
+        }).disposed(by: disposeBug)
+    }
+```
