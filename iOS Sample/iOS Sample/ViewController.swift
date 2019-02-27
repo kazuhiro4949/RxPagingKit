@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         self?.firstLoad = nil
     }
     
-    let disposeBug = DisposeBag()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,20 +56,20 @@ class ViewController: UIViewController {
             ) { _, model, cell in
                 cell.titleLabel.text = model
             }
-            .disposed(by: disposeBug)
+            .disposed(by: disposeBag)
         
         items.asObserver()
             .map { items in items.map({ $0.content }) }
             .bind(to: contentViewController.rx.viewControllers())
-            .disposed(by: disposeBug)
+            .disposed(by: disposeBag)
         
         menuViewController.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] (page, prev) in
             self?.contentViewController.scroll(to: page, animated: true)
-        }).disposed(by: disposeBug)
+        }).disposed(by: disposeBag)
         
         contentViewController.rx.didManualScroll.asObservable().subscribe(onNext: { [weak self] (index, percent) in
             self?.menuViewController.scroll(index: index, percent: percent, animated: false)
-        }).disposed(by: disposeBug)
+        }).disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
