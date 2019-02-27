@@ -114,22 +114,22 @@ You can implement the binding with Reactive Programming instead of Delegate patt
             ) { _, model, cell in
                 cell.titleLabel.text = model
             }
-            .disposed(by: disposeBug)
+            .disposed(by: disposeBag)
         
         // PagingContentViewControllerDataSource
         items.asObserver()
             .map { items in items.map({ $0.content }) }
             .bind(to: contentViewController.rx.viewControllers())
-            .disposed(by: disposeBug)
+            .disposed(by: disposeBag)
         
         // PagingMenuViewControllerDelegate
         menuViewController.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] (page, prev) in
             self?.contentViewController.scroll(to: page, animated: true)
-        }).disposed(by: disposeBug)
+        }).disposed(by: disposeBag)
         
         // PagingContentViewControllerDelegate
         contentViewController.rx.didManualScroll.asObservable().subscribe(onNext: { [weak self] (index, percent) in
             self?.menuViewController.scroll(index: index, percent: percent, animated: false)
-        }).disposed(by: disposeBug)
+        }).disposed(by: disposeBag)
     }
 ```
