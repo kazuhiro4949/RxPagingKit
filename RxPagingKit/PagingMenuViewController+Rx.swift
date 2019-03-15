@@ -103,10 +103,14 @@ public extension Reactive where Base: PagingMenuViewController {
         return delegate.willDisplayCell
     }
     
+    public var scroll: Binder<Int> {
+        return Binder(self.base) { (controller, index) in
+            controller.scroll(index: index)
+        }
+    }
+    
     private var delegate: RxPagingMenuViewControllerDelegateProxy {
         return RxPagingMenuViewControllerDelegateProxy.proxy(for: base)
     }
+    
 }
-
-
-
