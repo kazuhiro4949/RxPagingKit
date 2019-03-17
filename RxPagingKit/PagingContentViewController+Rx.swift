@@ -103,6 +103,12 @@ public extension Reactive where Base: PagingContentViewController {
         return delegate.willFinishPaging
     }
     
+    public func scroll(animated: Bool) -> Binder<Int> {
+        return Binder(self.base) { (controller, index) in
+            controller.scroll(to: index, animated: animated)
+        }
+    }
+    
     private var delegate: RxPagingContentViewControllerDelegateProxy {
         return RxPagingContentViewControllerDelegateProxy.proxy(for: base)
     }
