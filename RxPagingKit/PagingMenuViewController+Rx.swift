@@ -27,7 +27,8 @@ import RxSwift
 import RxCocoa
 import PagingKit
 
-public extension Reactive where Base: PagingMenuViewController {
+extension Reactive where Base: PagingMenuViewController {
+    
     public func items<Item, O: ObservableType>
         (_ source: O) ->
         (_ cellFactory: @escaping (PagingMenuViewController, Int, Item) -> PagingMenuViewCell) -> Disposable
