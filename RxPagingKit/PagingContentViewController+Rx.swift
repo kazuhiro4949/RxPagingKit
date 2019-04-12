@@ -27,7 +27,8 @@ import RxSwift
 import RxCocoa
 import PagingKit
 
-public extension Reactive where Base: PagingContentViewController {
+extension Reactive where Base: PagingContentViewController {
+    
     public func viewControllers<O: ObservableType>() ->
         (_ source: O) -> Disposable
         where O.E == [UIViewController] {
@@ -112,4 +113,5 @@ public extension Reactive where Base: PagingContentViewController {
     private var delegate: RxPagingContentViewControllerDelegateProxy {
         return RxPagingContentViewControllerDelegateProxy.proxy(for: base)
     }
+    
 }
