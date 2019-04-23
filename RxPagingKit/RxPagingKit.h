@@ -1,5 +1,5 @@
 //
-//  PagingKitProxy.swift
+//  RxPagingKit.h
 //  PagingKit
 //
 //  Copyright (c) 2017 Kazuhiro Hayashi
