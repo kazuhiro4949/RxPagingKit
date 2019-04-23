@@ -25,5 +25,5 @@ You can implement the binding with Reactive Programming instead of Delegate patt
   s.source_files = "RxPagingKit/*.{swift,h}"
   s.dependency 'RxSwift', '~> 4.5'
   s.dependency 'RxCocoa', '~> 4.5'
-  s.dependency 'PagingKit', '~> 1.9.0'
+  s.dependency 'PagingKit', '~> 1.10.0'
 end
