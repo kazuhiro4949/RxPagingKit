@@ -1,5 +1,5 @@
 //
-//  PagingKitProxy.swift
+//  PagingMenuViewController+Rx.swift
 //  PagingKit
 //
 //  Copyright (c) 2017 Kazuhiro Hayashi
