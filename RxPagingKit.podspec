@@ -23,7 +23,7 @@ You can implement the binding with Reactive Programming instead of Delegate patt
   s.ios.deployment_target = '8.0'
 
   s.source_files = "RxPagingKit/*.{swift,h}"
-  s.dependency 'RxSwift', '~> 4.5'
-  s.dependency 'RxCocoa', '~> 4.5'
+  s.dependency 'RxSwift', '~> 5'
+  s.dependency 'RxCocoa', '~> 5'
   s.dependency 'PagingKit', '~> 1'
 end
