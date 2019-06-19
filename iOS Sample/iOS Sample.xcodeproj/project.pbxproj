@@ -19,6 +19,8 @@
 		2B4E5588220EA30100601371 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4E5585220EA30100601371 /* RxSwift.framework */; };
 		2B4E558A220EA36300601371 /* RxPagingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4E5589220EA36300601371 /* RxPagingKit.framework */; };
 		2B4E558B220EA36300601371 /* RxPagingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4E5589220EA36300601371 /* RxPagingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7716933A22BA0EF300140179 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7716933422BA0E7300140179 /* RxRelay.framework */; };
+		7716933B22BA0EF300140179 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7716933422BA0E7300140179 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7716933B22BA0EF300140179 /* RxRelay.framework in Embed Frameworks */,
 				2B4E558B220EA36300601371 /* RxPagingKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -70,6 +73,7 @@
 		2B4E5584220EA30100601371 /* PagingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagingKit.framework; path = ../Carthage/Build/iOS/PagingKit.framework; sourceTree = "<group>"; };
 		2B4E5585220EA30100601371 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		2B4E5589220EA36300601371 /* RxPagingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxPagingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7716933422BA0E7300140179 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = ../Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			files = (
 				2B4E5586220EA30100601371 /* RxCocoa.framework in Frameworks */,
 				2B4E558A220EA36300601371 /* RxPagingKit.framework in Frameworks */,
+				7716933A22BA0EF300140179 /* RxRelay.framework in Frameworks */,
 				2B4E5587220EA30100601371 /* PagingKit.framework in Frameworks */,
 				2B4E5588220EA30100601371 /* RxSwift.framework in Frameworks */,
 			);
@@ -157,6 +162,7 @@
 		2B4AE4DE220E9843000E7178 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7716933422BA0E7300140179 /* RxRelay.framework */,
 				2B4E5584220EA30100601371 /* PagingKit.framework */,
 				2B4E5583220EA30100601371 /* RxCocoa.framework */,
 				2B4E5585220EA30100601371 /* RxSwift.framework */,
