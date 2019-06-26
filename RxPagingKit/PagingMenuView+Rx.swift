@@ -89,21 +89,21 @@ extension Reactive where Base: PagingMenuView {
             }
     }
     
-//    public var itemSelected: ControlEvent<(Int, Int)> {
-//        return delegate.didSelect
-//    }
-//    
-//    public var focusViewTransitioned: ControlEvent<PagingMenuFocusView> {
-//        return delegate.focusViewTransitioned
-//    }
-//    
-//    public var willAnimateFocusView: ControlEvent<(Int, PagingMenuFocusViewAnimationCoordinator)> {
-//        return delegate.willAnimateFocusView
-//    }
-//    
-//    public var willDisplayCell: ControlEvent<(PagingMenuViewCell, Int)> {
-//        return delegate.willDisplayCell
-//    }
+    public var itemSelected: ControlEvent<(Int, Int)> {
+        return delegate.didSelect
+    }
+    
+    public var focusViewTransitioned: ControlEvent<PagingMenuFocusView> {
+        return delegate.focusViewTransitioned
+    }
+    
+    public var willAnimateFocusView: ControlEvent<(Int, PagingMenuFocusViewAnimationCoordinator)> {
+        return delegate.willAnimateFocusView
+    }
+    
+    public var willDisplayCell: ControlEvent<(PagingMenuViewCell, Int)> {
+        return delegate.willDisplayCell
+    }
     
     public var scroll: Binder<Int> {
         return Binder(self.base) { (controller, index) in
@@ -111,8 +111,8 @@ extension Reactive where Base: PagingMenuView {
         }
     }
     
-//    private var delegate: RxPagingMenuViewDelegateProxy {
-//        return RxPagingMenuViewDelegateProxy.proxy(for: base)
-//    }
+    private var delegate: RxPagingMenuViewDelegateProxy {
+        return RxPagingMenuViewDelegateProxy.proxy(for: base)
+    }
     
 }
