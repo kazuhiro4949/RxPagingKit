@@ -21,6 +21,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+
 import UIKit
 import RxSwift
 import RxCocoa
@@ -31,6 +32,7 @@ extension PagingMenuViewController: HasDataSource {
 }
 
 class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewController, PagingMenuViewControllerDataSource>, DelegateProxyType, PagingMenuViewControllerDataSource {
+    
     init(pagingMenuViewController: PagingMenuViewController) {
         super.init(parentObject: pagingMenuViewController, delegateProxy: RxPagingMenuViewControllerDataSourceProxy.self)
     }
@@ -50,4 +52,5 @@ class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewCon
     func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
         return forwardToDelegate()!.menuViewController(viewController: viewController, widthForItemAt: index)
     }
+    
 }
