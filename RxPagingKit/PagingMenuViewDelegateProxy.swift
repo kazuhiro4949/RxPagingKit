@@ -1,8 +1,9 @@
 //
-//  PagingMenuViewControllerDelegateProxy.swift
-//  PagingKit
+//  PagingMenuViewDelegateProxy.swift
+//  RxPagingKit
 //
-//  Copyright (c) 2017 Kazuhiro Hayashi
+//  Created by Meng Li on 2019/06/26.
+//  Copyright © 2019 Kazuhiro Hayashi. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,20 +28,34 @@ import RxSwift
 import RxCocoa
 import PagingKit
 
-extension PagingMenuViewController: HasDelegate {
-    public typealias Delegate = PagingMenuViewControllerDelegate
+/// Describes an object that has a delegate.
+public protocol HasMenuDelegate: AnyObject {
+    /// Delegate type
+    associatedtype MenuDelegate
+    
+    /// Delegate
+    var menuDelegate: MenuDelegate? { get set }
 }
 
-class RxPagingMenuViewControllerDelegateProxy: DelegateProxy<PagingMenuViewController, PagingMenuViewControllerDelegate> {
+extension DelegateProxyType where ParentObject: HasMenuDelegate, Self.Delegate == ParentObject.MenuDelegate {
+    public static func currentDelegate(for object: ParentObject) -> Delegate? {
+        return object.menuDelegate
+    }
     
-    let (didSelectSubject, didSelect): (PublishSubject<(Int, Int)>, ControlEvent<(Int, Int)>) = {
-        let subject = PublishSubject<(Int, Int)>()
-        return (subject, ControlEvent<(Int, Int)>(events: subject.asObserver()))
-    }()
-    
-    let (focusViewTransitionedSubject, focusViewTransitioned): (PublishSubject<PagingMenuFocusView>, ControlEvent<PagingMenuFocusView>) = {
-        let subject = PublishSubject<PagingMenuFocusView>()
-        return (subject, ControlEvent<PagingMenuFocusView>(events: subject.asObserver()))
+    public static func setCurrentDelegate(_ delegate: Delegate?, to object: ParentObject) {
+        object.menuDelegate = delegate
+    }
+}
+
+extension PagingMenuView: HasMenuDelegate {
+    public typealias MenuDelegate = PagingMenuViewDelegate
+}
+
+class RxPagingMenuViewDelegateProxy: DelegateProxy<PagingMenuView, PagingMenuViewDelegate> { //<PagingMenuView, PagingMenuViewDelegate> {
+
+    let (didSelectSubject, didSelect): (PublishSubject<Int>, ControlEvent<Int>) = {
+        let subject = PublishSubject<Int>()
+        return (subject, ControlEvent<Int>(events: subject.asObserver()))
     }()
     
     let (willAnimateFocusViewSubject, willAnimateFocusView): (PublishSubject<(Int, PagingMenuFocusViewAnimationCoordinator)>, ControlEvent<(Int, PagingMenuFocusViewAnimationCoordinator)>) = {
@@ -53,36 +68,30 @@ class RxPagingMenuViewControllerDelegateProxy: DelegateProxy<PagingMenuViewContr
         return (subject, ControlEvent<(PagingMenuViewCell, Int)>(events: subject.asObserver()))
     }()
     
-    init(pagingMenuViewController: PagingMenuViewController) {
-        super.init(parentObject: pagingMenuViewController, delegateProxy: RxPagingMenuViewControllerDelegateProxy.self)
+    static func registerKnownImplementations() {
+        self.register(make: { RxPagingMenuViewDelegateProxy(pagingMenuView: $0) })
     }
     
-    static func registerKnownImplementations() {
-        self.register { RxPagingMenuViewControllerDelegateProxy(pagingMenuViewController: $0) }
+    init(pagingMenuView: PagingMenuView) {
+        super.init(parentObject: pagingMenuView, delegateProxy: RxPagingMenuViewDelegateProxy.self)
     }
     
 }
 
-extension RxPagingMenuViewControllerDelegateProxy: DelegateProxyType {}
+extension RxPagingMenuViewDelegateProxy: DelegateProxyType {}
 
-extension RxPagingMenuViewControllerDelegateProxy: PagingMenuViewControllerDelegate {
-
-    func menuViewController(viewController: PagingMenuViewController, focusViewDidEndTransition focusView: PagingMenuFocusView) {
-        focusViewTransitionedSubject.onNext(focusView)
+extension RxPagingMenuViewDelegateProxy: PagingMenuViewDelegate {
+    
+    func pagingMenuView(pagingMenuView: PagingMenuView, didSelectItemAt index: Int) {
+        didSelectSubject.onNext(index)
     }
     
-    
-    func menuViewController(viewController: PagingMenuViewController, didSelect page: Int, previousPage: Int) {
-        didSelectSubject.onNext((page, previousPage))
-    }
-    
-    
-    func menuViewController(viewController: PagingMenuViewController, willAnimateFocusViewTo index: Int, with coordinator: PagingMenuFocusViewAnimationCoordinator) {
+    func pagingMenuView(pagingMenuView: PagingMenuView, willAnimateFocusViewTo index: Int, with coordinator: PagingMenuFocusViewAnimationCoordinator) {
         willAnimateFocusViewSubject.onNext((index, coordinator))
     }
     
-    func menuViewController(viewController: PagingMenuViewController, willDisplay cell: PagingMenuViewCell, forItemAt index: Int) {
+    func pagingMenuView(pagingMenuView: PagingMenuView, willDisplay cell: PagingMenuViewCell, forItemAt index: Int) {
         willDisplayCellSubject.onNext((cell, index))
     }
-    
+
 }

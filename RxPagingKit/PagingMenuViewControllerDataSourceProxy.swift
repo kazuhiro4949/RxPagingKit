@@ -21,6 +21,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+
 import UIKit
 import RxSwift
 import RxCocoa
@@ -30,7 +31,8 @@ extension PagingMenuViewController: HasDataSource {
     public typealias DataSource = PagingMenuViewControllerDataSource
 }
 
-class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewController, PagingMenuViewControllerDataSource>, DelegateProxyType, PagingMenuViewControllerDataSource {
+class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewController, PagingMenuViewControllerDataSource>, DelegateProxyType {
+    
     init(pagingMenuViewController: PagingMenuViewController) {
         super.init(parentObject: pagingMenuViewController, delegateProxy: RxPagingMenuViewControllerDataSourceProxy.self)
     }
@@ -38,6 +40,10 @@ class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewCon
     static func registerKnownImplementations() {
         self.register { RxPagingMenuViewControllerDataSourceProxy(pagingMenuViewController: $0) }
     }
+    
+}
+
+extension RxPagingMenuViewControllerDataSourceProxy: PagingMenuViewControllerDataSource {
     
     func numberOfItemsForMenuViewController(viewController: PagingMenuViewController) -> Int {
         return forwardToDelegate()?.numberOfItemsForMenuViewController(viewController: viewController) ?? 0
@@ -50,4 +56,5 @@ class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewCon
     func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
         return forwardToDelegate()!.menuViewController(viewController: viewController, widthForItemAt: index)
     }
+    
 }
