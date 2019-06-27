@@ -18,8 +18,9 @@ class NavigationBarViewController: UIViewController {
         menuView.cellAlignment = .center
         menuView.register(type: TitleLabelMenuViewCell.self, with: "identifier")
         menuView.registerFocusView(view: UnderlineFocusView())
-        menuView.rx.itemSelected.subscribe(onNext: { [unowned self] (page, prev) in
-            self.contentViewController.scroll(to: page, animated: true)
+        menuView.rx.itemSelected.subscribe(onNext: { [unowned self] in
+            self.menuView.scroll(index: $0)
+            self.contentViewController.scroll(to: $0, animated: true)
         }).disposed(by: disposeBag)
         return menuView
     }()
@@ -37,7 +38,6 @@ class NavigationBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.titleView = menuView
         
         addChild(contentViewController)
@@ -45,7 +45,7 @@ class NavigationBarViewController: UIViewController {
         contentViewController.didMove(toParent: self)
         
         Observable.just(["1", "2", "3"].map {
-             ($0, 100)
+             ($0, 50)
         }).bind(to: menuView.rx.items(
             cellIdentifier: "identifier",
             cellType: TitleLabelMenuViewCell.self

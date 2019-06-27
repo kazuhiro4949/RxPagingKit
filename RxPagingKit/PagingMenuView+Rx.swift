@@ -89,29 +89,25 @@ extension Reactive where Base: PagingMenuView {
             }
     }
     
-    public var itemSelected: ControlEvent<(Int, Int)> {
-        return delegate.didSelect
-    }
-    
-    public var focusViewTransitioned: ControlEvent<PagingMenuFocusView> {
-        return delegate.focusViewTransitioned
+    public var itemSelected: ControlEvent<Int> {
+        return menuDelegate.didSelect
     }
     
     public var willAnimateFocusView: ControlEvent<(Int, PagingMenuFocusViewAnimationCoordinator)> {
-        return delegate.willAnimateFocusView
+        return menuDelegate.willAnimateFocusView
     }
     
     public var willDisplayCell: ControlEvent<(PagingMenuViewCell, Int)> {
-        return delegate.willDisplayCell
+        return menuDelegate.willDisplayCell
     }
     
     public var scroll: Binder<Int> {
-        return Binder(self.base) { (controller, index) in
-            controller.scroll(index: index)
+        return Binder(self.base) { menuView, index in
+            menuView.scroll(index: index)
         }
     }
     
-    private var delegate: RxPagingMenuViewDelegateProxy {
+    private var menuDelegate: RxPagingMenuViewDelegateProxy {
         return RxPagingMenuViewDelegateProxy.proxy(for: base)
     }
     
