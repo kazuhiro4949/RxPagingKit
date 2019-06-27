@@ -32,7 +32,7 @@ extension Reactive where Base: PagingMenuViewController {
     public func items<Item, O: ObservableType>
         (_ source: O) ->
         (_ cellFactory: @escaping (PagingMenuViewController, Int, Item) -> PagingMenuViewCell) -> Disposable
-        where O.E == [(Item, CGFloat)] {
+        where O.Element == [(Item, CGFloat)] {
             return { cellFactory in
                 let dataSource = RxPagingMenuViewControllerReactiveArrayDataSource<Item>(cellFactory: cellFactory)
                 return self.items(dataSource: dataSource)(source)
@@ -43,7 +43,7 @@ extension Reactive where Base: PagingMenuViewController {
         (cellIdentifier: String, cellType: Cell.Type = Cell.self) ->
         (_ source: O) ->
         (_ configureCell: @escaping (Int, Item, Cell) -> Void) -> Disposable
-        where O.E == [(Item, CGFloat)] {
+        where O.Element == [(Item, CGFloat)] {
             
             return { source in
                 return { configureCell in
@@ -59,7 +59,7 @@ extension Reactive where Base: PagingMenuViewController {
     
     public func items<DataSource: PagingMenuViewControllerDataSource & RxPagingMenuViewControllerDataSourceType, O: ObservableType>
         (dataSource: DataSource)
-        -> (_ source: O) -> Disposable where  O.E == DataSource.Element {
+        -> (_ source: O) -> Disposable where  O.Element == DataSource.Element {
             RxPagingMenuViewControllerDataSourceProxy.setCurrentDelegate(nil, to: base)
             
             return { [base] source in

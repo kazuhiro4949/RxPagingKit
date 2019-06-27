@@ -21,6 +21,7 @@
 		2B4AE49D220E9710000E7178 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE49A220E9710000E7178 /* RxCocoa.framework */; };
 		2B4AE49E220E9710000E7178 /* PagingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE49B220E9710000E7178 /* PagingKit.framework */; };
 		2B4AE49F220E9710000E7178 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4AE49C220E9710000E7178 /* RxSwift.framework */; };
+		7716933922BA0E8F00140179 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7716933822BA0E8F00140179 /* RxRelay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2B4AE49A220E9710000E7178 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		2B4AE49B220E9710000E7178 /* PagingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagingKit.framework; path = Carthage/Build/iOS/PagingKit.framework; sourceTree = "<group>"; };
 		2B4AE49C220E9710000E7178 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		7716933822BA0E8F00140179 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			files = (
 				2B4AE49D220E9710000E7178 /* RxCocoa.framework in Frameworks */,
 				2B4AE49E220E9710000E7178 /* PagingKit.framework in Frameworks */,
+				7716933922BA0E8F00140179 /* RxRelay.framework in Frameworks */,
 				2B4AE49F220E9710000E7178 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +126,7 @@
 		2B4AE492220E9577000E7178 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7716933822BA0E8F00140179 /* RxRelay.framework */,
 				2B4AE49B220E9710000E7178 /* PagingKit.framework */,
 				2B4AE49A220E9710000E7178 /* RxCocoa.framework */,
 				2B4AE49C220E9710000E7178 /* RxSwift.framework */,

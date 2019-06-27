@@ -31,7 +31,7 @@ extension Reactive where Base: PagingContentViewController {
     
     public func viewControllers<O: ObservableType>() ->
         (_ source: O) -> Disposable
-        where O.E == [UIViewController] {
+        where O.Element == [UIViewController] {
             
             return { source in
                 let dataSource = RxPagingContentViewControllerReactiveArrayDataSource { _, viewController in
@@ -42,7 +42,7 @@ extension Reactive where Base: PagingContentViewController {
     }
     
     public func viewControllers<O: ObservableType>() -> (_ source: O) ->
-        (_ configureVC: @escaping (Int, UIViewController) -> UIViewController) -> Disposable where O.E == [UIViewController] {
+        (_ configureVC: @escaping (Int, UIViewController) -> UIViewController) -> Disposable where O.Element == [UIViewController] {
             
             return { source in
                 return { configureVC in
@@ -56,7 +56,7 @@ extension Reactive where Base: PagingContentViewController {
     
     public func viewControllers<DataSource: PagingContentViewControllerDataSource & RxPagingContentViewControllerDataSourceType, O: ObservableType>
         (dataSource: DataSource)
-        -> (_ source: O) -> Disposable where  O.E == DataSource.Element {
+        -> (_ source: O) -> Disposable where  O.Element == DataSource.Element {
             RxPagingContentViewControllerDataSourceProxy.setCurrentDelegate(nil, to: base)
             
             return { [base] source in
