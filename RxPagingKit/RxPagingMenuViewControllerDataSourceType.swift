@@ -34,16 +34,10 @@ public protocol RxPagingMenuViewControllerDataSourceType /*: PagingMenuViewContr
     func pagingViewController(_ pagingMenuViewController: PagingMenuViewController, observedEvent: Event<Element>)
 }
 
-class RxPagingMenuViewControllerReactiveArrayDataSource<Item>: PagingMenuViewControllerDataSource, RxPagingMenuViewControllerDataSourceType {
+class RxPagingMenuViewControllerReactiveArrayDataSource<Item> {
+    
     typealias Element = [(Item, CGFloat)]
-    
-    func pagingViewController(_ pagingMenuViewController: PagingMenuViewController, observedEvent: Event<Element>) {
-        Binder(self) { dataSource, elements in
-            dataSource.itemModels = elements
-            pagingMenuViewController.reloadData()
-            }.on(observedEvent)
-    }
-    
+
     typealias CellFactory = (PagingMenuViewController, Int, Item) -> PagingMenuViewCell
     
     var itemModels: [(Item, CGFloat)]?
@@ -57,7 +51,6 @@ class RxPagingMenuViewControllerReactiveArrayDataSource<Item>: PagingMenuViewCon
         guard let item = itemModels?[indexPath.item] else {
             throw RxCocoaError.itemsNotYetBound(object: self)
         }
-        
         return item
     }
     
@@ -67,6 +60,21 @@ class RxPagingMenuViewControllerReactiveArrayDataSource<Item>: PagingMenuViewCon
         self.cellFactory = cellFactory
     }
     
+}
+
+extension RxPagingMenuViewControllerReactiveArrayDataSource: RxPagingMenuViewControllerDataSourceType {
+    
+    func pagingViewController(_ pagingMenuViewController: PagingMenuViewController, observedEvent: Event<Element>) {
+        Binder(self) { dataSource, elements in
+            dataSource.itemModels = elements
+            pagingMenuViewController.reloadData()
+        }.on(observedEvent)
+    }
+    
+}
+
+extension RxPagingMenuViewControllerReactiveArrayDataSource: PagingMenuViewControllerDataSource {
+
     func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
         return itemModels![index].1
     }
@@ -78,4 +86,5 @@ class RxPagingMenuViewControllerReactiveArrayDataSource<Item>: PagingMenuViewCon
     func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
         return cellFactory(viewController, index, itemModels![index].0)
     }
+    
 }

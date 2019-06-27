@@ -31,7 +31,7 @@ extension PagingMenuViewController: HasDataSource {
     public typealias DataSource = PagingMenuViewControllerDataSource
 }
 
-class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewController, PagingMenuViewControllerDataSource>, DelegateProxyType, PagingMenuViewControllerDataSource {
+class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewController, PagingMenuViewControllerDataSource>, DelegateProxyType {
     
     init(pagingMenuViewController: PagingMenuViewController) {
         super.init(parentObject: pagingMenuViewController, delegateProxy: RxPagingMenuViewControllerDataSourceProxy.self)
@@ -40,6 +40,10 @@ class RxPagingMenuViewControllerDataSourceProxy: DelegateProxy<PagingMenuViewCon
     static func registerKnownImplementations() {
         self.register { RxPagingMenuViewControllerDataSourceProxy(pagingMenuViewController: $0) }
     }
+    
+}
+
+extension RxPagingMenuViewControllerDataSourceProxy: PagingMenuViewControllerDataSource {
     
     func numberOfItemsForMenuViewController(viewController: PagingMenuViewController) -> Int {
         return forwardToDelegate()?.numberOfItemsForMenuViewController(viewController: viewController) ?? 0

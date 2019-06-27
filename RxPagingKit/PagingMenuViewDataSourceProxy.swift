@@ -32,7 +32,7 @@ extension PagingMenuView: HasDataSource {
     public typealias DataSource = PagingMenuViewDataSource
 }
 
-class RxPagingMenuViewDataSourceProxy: DelegateProxy<PagingMenuView, PagingMenuViewDataSource>, DelegateProxyType, PagingMenuViewDataSource {
+class RxPagingMenuViewDataSourceProxy: DelegateProxy<PagingMenuView, PagingMenuViewDataSource>, DelegateProxyType {
 
     init(pagingMenuView: PagingMenuView) {
         super.init(parentObject: pagingMenuView, delegateProxy: RxPagingMenuViewDataSourceProxy.self)
@@ -42,6 +42,10 @@ class RxPagingMenuViewDataSourceProxy: DelegateProxy<PagingMenuView, PagingMenuV
         self.register { RxPagingMenuViewDataSourceProxy(pagingMenuView: $0) }
     }
     
+}
+
+extension RxPagingMenuViewDataSourceProxy: PagingMenuViewDataSource {
+ 
     func numberOfItemForPagingMenuView() -> Int {
         return forwardToDelegate()!.numberOfItemForPagingMenuView()
     }

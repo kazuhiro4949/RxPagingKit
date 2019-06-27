@@ -63,9 +63,7 @@ class RxPagingMenuViewControllerDelegateProxy: DelegateProxy<PagingMenuViewContr
     
 }
 
-extension RxPagingMenuViewControllerDelegateProxy: DelegateProxyType {
-    
-}
+extension RxPagingMenuViewControllerDelegateProxy: DelegateProxyType {}
 
 extension RxPagingMenuViewControllerDelegateProxy: PagingMenuViewControllerDelegate {
 
