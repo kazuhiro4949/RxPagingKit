@@ -49,7 +49,7 @@ extension Reactive where Base: PagingMenuView {
             return { source in
                 return { configureCell in
                     let dataSource = RxPagingMenuViewReactiveArrayDataSource<Item> { view, index, item in
-                        let cell = view.dequeue(with: cellIdentifier) as! Cell//vc.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: index) as! Cell
+                        let cell = view.dequeue(with: cellIdentifier) as! Cell
                         configureCell(index, item, cell)
                         return cell
                     }
