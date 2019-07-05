@@ -21,6 +21,7 @@
 		2B4E558B220EA36300601371 /* RxPagingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4E5589220EA36300601371 /* RxPagingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7716933A22BA0EF300140179 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7716933422BA0E7300140179 /* RxRelay.framework */; };
 		7716933B22BA0EF300140179 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7716933422BA0E7300140179 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBCC6F1A22C3C13E00B58BA8 /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC6F1922C3C13E00B58BA8 /* NavigationBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		2B4E5585220EA30100601371 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		2B4E5589220EA36300601371 /* RxPagingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxPagingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7716933422BA0E7300140179 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = ../Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		BBCC6F1922C3C13E00B58BA8 /* NavigationBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				2B4AE4AC220E97F0000E7178 /* AppDelegate.swift */,
 				2B4AE4AE220E97F0000E7178 /* ViewController.swift */,
+				BBCC6F1922C3C13E00B58BA8 /* NavigationBarViewController.swift */,
 				2B4E5579220E9F4400601371 /* Main.storyboard */,
 				2B4AE4B3220E97F1000E7178 /* Assets.xcassets */,
 				2B4AE4B5220E97F1000E7178 /* LaunchScreen.storyboard */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4AE4AF220E97F0000E7178 /* ViewController.swift in Sources */,
+				BBCC6F1A22C3C13E00B58BA8 /* NavigationBarViewController.swift in Sources */,
 				2B4AE4AD220E97F0000E7178 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

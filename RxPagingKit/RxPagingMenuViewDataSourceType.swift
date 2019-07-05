@@ -1,8 +1,9 @@
 //
-//  RxPagingMenuViewControllerDataSourceType.swift
-//  PagingKit
+//  RxPagingMenuViewDataSourceType.swift
+//  RxPagingKit
 //
-//  Copyright (c) 2017 Kazuhiro Hayashi
+//  Created by Meng Li on 2019/06/26.
+//  Copyright © 2019 Kazuhiro Hayashi. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,18 +28,18 @@ import RxSwift
 import RxCocoa
 import PagingKit
 
-public protocol RxPagingMenuViewControllerDataSourceType /*: PagingMenuViewControllerDataSource*/ {
+public protocol RxPagingMenuViewDataSourceType /*: PagingMenuViewDataSource*/ {
     
     associatedtype Element
     
-    func pagingViewController(_ pagingMenuViewController: PagingMenuViewController, observedEvent: Event<Element>)
+    func pagingView(_ pagingMenuView: PagingMenuView, observedEvent: Event<Element>)
 }
 
-class RxPagingMenuViewControllerReactiveArrayDataSource<Item> {
-    
-    typealias Element = [(Item, CGFloat)]
+class RxPagingMenuViewReactiveArrayDataSource<Item> {
 
-    typealias CellFactory = (PagingMenuViewController, Int, Item) -> PagingMenuViewCell
+    typealias Element = [(Item, CGFloat)]
+    
+    typealias CellFactory = (PagingMenuView, Int, Item) -> PagingMenuViewCell
     
     var itemModels: [(Item, CGFloat)]?
     
@@ -51,6 +52,7 @@ class RxPagingMenuViewControllerReactiveArrayDataSource<Item> {
         guard let item = itemModels?[indexPath.item] else {
             throw RxCocoaError.itemsNotYetBound(object: self)
         }
+        
         return item
     }
     
@@ -59,32 +61,32 @@ class RxPagingMenuViewControllerReactiveArrayDataSource<Item> {
     init(cellFactory: @escaping CellFactory) {
         self.cellFactory = cellFactory
     }
-    
+
 }
 
-extension RxPagingMenuViewControllerReactiveArrayDataSource: RxPagingMenuViewControllerDataSourceType {
+extension RxPagingMenuViewReactiveArrayDataSource: RxPagingMenuViewDataSourceType {
     
-    func pagingViewController(_ pagingMenuViewController: PagingMenuViewController, observedEvent: Event<Element>) {
+    func pagingView(_ pagingMenuView: PagingMenuView, observedEvent: Event<[(Item, CGFloat)]>) {
         Binder(self) { dataSource, elements in
             dataSource.itemModels = elements
-            pagingMenuViewController.reloadData()
+            pagingMenuView.reloadData()
         }.on(observedEvent)
     }
     
 }
 
-extension RxPagingMenuViewControllerReactiveArrayDataSource: PagingMenuViewControllerDataSource {
-
-    func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
-        return itemModels![index].1
-    }
+extension RxPagingMenuViewReactiveArrayDataSource: PagingMenuViewDataSource {
     
-    func numberOfItemsForMenuViewController(viewController: PagingMenuViewController) -> Int {
+    func numberOfItemForPagingMenuView() -> Int {
         return itemModels?.count ?? 0
     }
     
-    func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
-        return cellFactory(viewController, index, itemModels![index].0)
+    func pagingMenuView(pagingMenuView: PagingMenuView, cellForItemAt index: Int) -> PagingMenuViewCell {
+        return cellFactory(pagingMenuView, index, itemModels![index].0)
+    }
+    
+    func pagingMenuView(pagingMenuView: PagingMenuView, widthForItemAt index: Int) -> CGFloat {
+        return itemModels![index].1
     }
     
 }

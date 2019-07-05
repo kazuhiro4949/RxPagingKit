@@ -34,24 +34,8 @@ public protocol RxPagingContentViewControllerDataSourceType /*: PagingContentVie
     func pagingViewController(_ pagingMenuViewController: PagingContentViewController, observedEvent: Event<Element>)
 }
 
-public class RxPagingContentViewControllerReactiveArrayDataSource: PagingContentViewControllerDataSource, RxPagingContentViewControllerDataSourceType {
-    public func numberOfItemsForContentViewController(viewController: PagingContentViewController) -> Int {
-        return itemModels?.count ?? 0
-        
-    }
-    
-    public func contentViewController(viewController: PagingContentViewController, viewControllerAt index: Int) -> UIViewController {
-        return vcFactory(index, itemModels![index])
-        
-    }
-    
-    public func pagingViewController(_ pagingMenuViewController: PagingContentViewController, observedEvent: Event<[UIViewController]>) {
-        Binder(self) { dataSource, elements in
-            dataSource.itemModels = elements
-            pagingMenuViewController.reloadData()
-            }.on(observedEvent)
-    }
-    
+public class RxPagingContentViewControllerReactiveArrayDataSource {
+
     public typealias Element = [UIViewController]
     
     public typealias VCFactory = (Int, UIViewController) -> UIViewController
@@ -76,4 +60,28 @@ public class RxPagingContentViewControllerReactiveArrayDataSource: PagingContent
     public init(vcFactory: @escaping VCFactory) {
         self.vcFactory = vcFactory
     }
+    
+}
+
+extension RxPagingContentViewControllerReactiveArrayDataSource: RxPagingContentViewControllerDataSourceType {
+    
+    public func pagingViewController(_ pagingMenuViewController: PagingContentViewController, observedEvent: Event<[UIViewController]>) {
+        Binder(self) { dataSource, elements in
+            dataSource.itemModels = elements
+            pagingMenuViewController.reloadData()
+        }.on(observedEvent)
+    }
+    
+}
+
+extension RxPagingContentViewControllerReactiveArrayDataSource: PagingContentViewControllerDataSource {
+    
+    public func numberOfItemsForContentViewController(viewController: PagingContentViewController) -> Int {
+        return itemModels?.count ?? 0
+    }
+    
+    public func contentViewController(viewController: PagingContentViewController, viewControllerAt index: Int) -> UIViewController {
+        return vcFactory(index, itemModels![index])
+    }
+    
 }
