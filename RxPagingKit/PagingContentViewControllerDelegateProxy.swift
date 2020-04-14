@@ -58,6 +58,11 @@ class RxPagingContentViewControllerDelegateProxy: DelegateProxy<PagingContentVie
         return (subject, ControlEvent<(Int, Bool)>(events: subject.asObserver()))
     }()
     
+    let (didFinishPagingSubject, didFinishPaging): (PublishSubject<(Int, Bool)>, ControlEvent<(Int, Bool)>) = {
+        let subject = PublishSubject<(Int, Bool)>()
+        return (subject, ControlEvent<(Int, Bool)>(events: subject.asObserver()))
+    }()
+    
     init(pagingContentViewController: PagingContentViewController) {
         super.init(parentObject: pagingContentViewController, delegateProxy: RxPagingContentViewControllerDelegateProxy.self)
     }
@@ -89,6 +94,6 @@ class RxPagingContentViewControllerDelegateProxy: DelegateProxy<PagingContentVie
     }
     
     func contentViewController(viewController: PagingContentViewController, didFinishPagingAt index: Int, animated: Bool) {
-        willFinishPagingSubject.onNext((index, animated))
+        didFinishPagingSubject.onNext((index, animated))
     }
 }

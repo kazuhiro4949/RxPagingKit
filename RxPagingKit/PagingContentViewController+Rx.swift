@@ -104,6 +104,10 @@ extension Reactive where Base: PagingContentViewController {
         return delegate.willFinishPaging
     }
     
+    public var didFinishPaging: ControlEvent<(Int, Bool)> {
+        return delegate.didFinishPaging
+    }
+    
     public func scroll(animated: Bool) -> Binder<Int> {
         return Binder(self.base) { (controller, index) in
             controller.scroll(to: index, animated: animated)
