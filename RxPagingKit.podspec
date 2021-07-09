@@ -21,11 +21,12 @@ You can implement the binding with Reactive Programming instead of Delegate patt
   s.source           = { :git => "https://github.com/kazuhiro4949/RxPagingKit.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
+  s.swift_version = '5.1'
 
   s.source_files = 'RxPagingKit/Classes/**/*'
   
   s.dependency 'RxSwift', '~> 6'
   s.dependency 'RxCocoa', '~> 6'
-  s.dependency 'PagingKit', '~> 1'
+  s.dependency 'PagingKit', '~> 1.18'
 end
 
