@@ -64,12 +64,12 @@ extension Reactive where Base: PagingContentViewController {
                 
                 let subscription = source
                     .asObservable()
-                    .observeOn(MainScheduler())
-                    .catchError { _ in
+                    .observe(on: MainScheduler())
+                    .catch { _ in
                         return Observable.empty()
                     }
                     .concat(Observable.never())
-                    .takeUntil(base.rx.deallocated)
+                    .take(until: base.rx.deallocated)
                     .subscribe { (event) in
                         dataSource.pagingViewController(base, observedEvent: event)
                     }
