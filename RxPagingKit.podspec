@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RxPagingKit"
-  s.version          = "0.7"
+  s.version          = "1.0.0"
   s.summary          = "Reactive Extension for PagingKit"
 
   s.description      = <<-DESC
