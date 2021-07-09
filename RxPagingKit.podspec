@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "RxPagingKit"
-  s.version          = "0.6.0"
+  s.version          = "0.7"
   s.summary          = "Reactive Extension for PagingKit"
 
   s.description      = <<-DESC
@@ -22,8 +22,10 @@ You can implement the binding with Reactive Programming instead of Delegate patt
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = "RxPagingKit/*.{swift,h}"
-  s.dependency 'RxSwift', '~> 5'
-  s.dependency 'RxCocoa', '~> 5'
+  s.source_files = 'RxPagingKit/Classes/**/*'
+  
+  s.dependency 'RxSwift', '~> 6'
+  s.dependency 'RxCocoa', '~> 6'
   s.dependency 'PagingKit', '~> 1'
 end
+

@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'RxPagingKit_Example' do
+  pod 'RxPagingKit', :path => '../'
+
+  target 'RxPagingKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

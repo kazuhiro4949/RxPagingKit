@@ -27,3 +27,6 @@ iOS\ Sample/Carthage/*
 !.gitkeep
 .DS_Store
 
+Pods/
+Example/RxPagingKit.xcworkspace/
+Example/Podfile.lock
