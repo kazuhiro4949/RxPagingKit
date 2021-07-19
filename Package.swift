@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/kazuhiro4949/PagingKit.git", .upToNextMajor(from: "1.18.0"))
     ],
     targets: [
-        .target(name: "RxPagingKit", dependencies: ["RxSwift", "RxCocoa", "PagingKit"], path: "RxController")
+        .target(name: "RxPagingKit", dependencies: ["RxSwift", "RxCocoa", "PagingKit"], path: "RxPagingKit")
     ],
     swiftLanguageVersions: [.v5]
 )
